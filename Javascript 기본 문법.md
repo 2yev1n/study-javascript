@@ -231,3 +231,56 @@ console.log(person);
 
 출력 `son { name: 'Park', age: '55', occupation: 'Doctor' }`  이라는 object가 출력된다.
 
+
+
+## Toggle
+
+Toggle이란? 전등스위치처럼 on/off 할 수 있는 기능
+
+#### Toggle로 navbar on/off 만들어 보기
+
+ ``` javascript
+ <body>
+   <button id="btn">☰</button>
+ 	<div id="nav">
+     <ul>
+     	<li>menu1</li>
+ 			<li>menu2</li>
+ 			<li>menu3</li>
+ 		</ul>
+ 	</div>
+ 
+ 	<script>
+     const btn = document.getElementById('btn');
+ 		const nav = document.getElementById('nav');
+ 
+ 		btn.addEcentListener('click', () => {
+     	nav.classlist.toggle('active');
+       btn.classList.toggle('active');
+     });
+ 	</script>
+ </body>
+ ```
+
+코드 설명 :
+
+`button` 과 `nav` 에 아이디를 부여해서 자바스크립트애서 `const 상수` 에 각각 저장한다.
+그리고 `btn` 에 `addEventListener` 로 이벤트를 주고 클릭할 때 마다 `active` 클래스르르 `toggle` 로 부여해준다.
+마지막으로 css에서 
+
+```javascript
+nav{
+  	position: fixed;
+  	top: 0;
+  	right: 0;
+  	transform: translateX(100%);
+    transitionL transform 0.3s ease-in-out;
+}
+
+nav.active{
+ 		transform: translateX(0);
+}
+```
+
+이렇게 `transform` 으로 숨김과 나타냄 효과를 주면 깔끔하게 `toggle로 navbara : ham button` 을 만들 수 있다.
+
